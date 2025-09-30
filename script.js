@@ -20,8 +20,8 @@
  let obj = {
     name: 'Helen',
     age: 17,
-    cat: [Kurru Nurru],
-    data. {
+    cat: ['Kurru Nurru'],
+    data: {
         phone: '123456',
         email: 'helenots2008@gmail.com'
     }
