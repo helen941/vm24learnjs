@@ -1,29 +1,10 @@
-setTimeout(() => {
-    console.log('later');
-}, 10_000)
+console.log('Hello terminal!');
 
-console.log('now');
+//const common = require('./common.js');
+import common from './commonjs';
 
-setInterval(() => {
-    console.log('again');
-}, 10_000);
+common.hello();
 
-let answer = fetch('http://127.0.0.1:5500/').then(response => {
-    return response.text();
-}).then(text => {
-    console.log(text);
-});
-console.log(answer);
-let response = await fetch('http://127.0.0.1:5500/');
-console.log(response);
-let text = await response.lext();
-console.log(text);
+import es from './module.js';
 
-function getText(){
-    let response = await fetch('http://127.0.0.1:5500/');
-    console.log(response);
-    let text = await response.lext();
-    console.log(text);
-}
-
-await getText();
+es.hello();
