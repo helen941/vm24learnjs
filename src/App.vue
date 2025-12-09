@@ -1,31 +1,27 @@
 <script setup>
-import { ref } from 'vue'
-import Modal from './components/Modal.vue'
+import { ref } from 'vue';
+import Tab from './components/Tab.vue';
+let activeTab = ref(0);
+let titles = ref(['Pictures', 'Music', 'Videos', 'Documents', 'Kassid'])
+let contents = ref([
+    'Some awesome Pictures',
+    'Some awesome Music',
+    'Some awesome Videos',
+    'Some awesome Documents',
+    'Some awesome Kassid',
 
-let modal1Active = ref(false);
-let modal2Active = ref(false);
-let modal3Active = ref(false);
+])
+
+function setTab(index){
+  activeTab.value = index;
+}
+
 </script>
 
 <template>
-  <div class="container mt-2">
-    <div class="content">
-      <button class="button is-primary" @click="modal1Active = true">Open Modal 1</button>
-      <button class="button is-link" @click="modal2Active = true">Open Modal 2</button>
-      <button class="button is-warning" @click="modal3Active = true">Open Modal 3</button>
+    <Tab :active="activeTab" :titles="titles" @change="setTab"></Tab>
+    <div class="container content">
+      <h1>{{ contents[activeTab] }}</h1>
+    </div>
 
-      <Modal :active="modal1Active" @close="modal1Active = false" url="https://picsum.photos/1290/960?random=1"> </Modal>
-      <Modal :active="modal2Active" @close="modal2Active = false" url="https://picsum.photos/1290/960?random=2"> </Modal>
-      <Modal :active="modal3Active" @close="modal3Active = false" >
-      <div class="card">
-  <div class="card-content">
-    <div class="content">
-      Kass ehk kodukass on kaslaste sugukonna kassi perekonda kuuluv väike kiskja, kaslaste hulgas ainus koduloom. Kodukasse arvatakse maailmas elavat 600 miljonit ehk rohkem kui kõiki teisi kaslasi kokku.
-    </div>
-  </div>
-</div>
-      </Modal>
-    
-    </div>
-  </div>
 </template>
